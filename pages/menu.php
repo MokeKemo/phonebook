@@ -12,21 +12,49 @@
 
 <title>Phonebook</title>
 <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="<?=CSS_PATH.'add_contact.css'?>">
+
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<!--script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script-->
 
-<style>
+    <style>
 
+        .navbar-brand { position: relative; z-index: 2; }
 
+        .navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
+
+        .navbar .navbar-collapse { position: relative; }
+        .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+        .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+        .navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+        .navbar.navbar-inverse .nav-collapse { background-color: #222; }
+        .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+        .nav-collapse>li { float: right; }
+
+        .btn.btn-circle { border-radius: 50px; }
+        .btn.btn-outline { background-color: transparent; }
+
+        @media screen and (max-width: 767px) {
+            .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }
+
+            .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+            .navbar .nav-collapse .navbar-form { margin: 0; }
+            .nav-collapse>li { float: none; }
+        }
 
 
     </style>
+
 </head>
 <nav class="navbar navbar-inverse">
     <div class="container">
@@ -45,11 +73,8 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-3">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?=PAGES_PATH.'add_contact_form.php'?>">Add Contact</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Works</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contacts List</a></li>
+                <li><a href="#">Connector</a></li>
                 <li>
                     <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
                 </li>

@@ -8,3 +8,4 @@
 
 
 define('PAGES_PATH', 'http://localhost/phonebook/pages/');
+define('CSS_PATH', 'http://localhost/phonebook/css/');
