@@ -15,16 +15,13 @@ include('menu.php');
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <!-- Website Font style -->
 
     <!--link rel="stylesheet" href="style.css"-->
     <link rel="stylesheet" href="../css/add_contact.css">
     <!-- Google Fonts -->
-
-
-
-
+    <script type="text/javascript" src="../js/phonebook.js"></script>
 
     </head>
 <body>
@@ -86,7 +83,7 @@ include('menu.php');
                 </div-->
 
                 <div class="form-group ">
-                    <a href="" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Add Contact</a>
+                    <button type="button" id="button" onclick="getContactInfo();" class="btn btn-primary btn-lg btn-block login-button">Add Contact</button>
                 </div>
 
             </form>

@@ -1,23 +1,14 @@
-var numbers = "";
-$(function () {
-    $("#items").selectable({
-        selected: function (event, ui) {
-            $(".ui-selected", this).each(function () {
-                var index = $("#items li").index(this);
+    // the dom is in place, but everything is not necessarily loaded
 
-                if (index == 9) {
-                    return;
-                }
-                if (index == 10) {
-                    index = -1;
-                }
 
-                numbers += (index + 1);
-                if (index == 11) {
-                    numbers = "";
-                }
-                $("#info").html(numbers);
-            });
-        }
-    });
-});
+function getContactInfo(){
+    var info = {};
+
+    info.name     = $('#name').val();
+    info.lastname = $('#lastname').val();
+    info.email    = $('#email').val();
+    info.phone    = $('#phone').val();
+
+    console.log(info);
+}
+
