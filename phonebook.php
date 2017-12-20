@@ -7,13 +7,8 @@ include('pages/menu.php');
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-    <!-- Website CSS style -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Website Font style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <!--link rel="stylesheet" href="style.css"-->
     <link rel="stylesheet" href="css/add_contact.css">
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
