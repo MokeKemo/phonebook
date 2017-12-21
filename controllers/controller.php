@@ -10,12 +10,25 @@ include('../db/classDataHandler.php');
 
 $res = new DataHandler();
 
-$q = "SELECT * FROM `test`";
+//$q = "SELECT * FROM `test`";
+//
+//$result = $res->executeQuery($q);
+//
+//$re    = $result->fetchAll();
+//
+//foreach($re as $r) {
+//    print_r($r);
+//}
 
-$result = $res->executeQuery($q);
+if(isset($_POST['case']) AND !empty($_POST['case'])) {
+    switch ($_POST['case']) {
+        case 'contactInfo':
+                
+            break;
 
-$re    = $result->fetchAll();
 
-foreach($re as $r) {
-    print_r($r);
+
+    }
+
 }
+
