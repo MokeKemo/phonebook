@@ -28,7 +28,11 @@ class DataHandler {
     {
         $r = $this->db->query($q, $mode = PDO::FETCH_ASSOC);
 
-        return $r;
+        if($r) var_dump('ima');
+        else var_dump('nema');
+
+        //$r = $r->fetchAll();
+        //return $r;
     }
 
     public function test()
@@ -38,8 +42,32 @@ class DataHandler {
 
         $r = $this->executeQuery($q);
 
-        $r = $r->fetchAll();
+        //$r = $r->fetchAll(); var_dump($r);
 
-        return $r;
+        //return $r;
+    }
+
+    public function insertContact($name, $lastname, $email, $phone)
+    {
+        $q = "INSER INTO `contacts`(`name`, `lastname`, `email`, `phone`) VALUES('$name','$lastname','$email','$phone')";
+
+        $r = $this->executeQuery($q);
+//
+//        $r = $r->fetchAll();
+//
+//        if($r) return 1;
+//
+//        else return 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+

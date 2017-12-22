@@ -20,7 +20,7 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
             $email    = $_POST['email'];
             $phone    = $_POST['phone'];
 
-            var_dump($_data_handler->test());
+            $_data_handler->insertContact($name, $lastname, $email, $phone);
 
             break;
 
