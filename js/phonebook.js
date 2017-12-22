@@ -24,6 +24,10 @@ function getContactInfo(){
                 //$('#insertAlert').attr('class', "");
                 $('#insertAlert').attr('class', "alert alert-success");
                 $('#insertAlert').fadeOut(5000);
+                $('#name').val("");
+                $('#lastname').val("");
+                $('#email').val("");
+                $('#phone').val("");
 
             }
             else{ alert("Your credentials are not correct!"); }

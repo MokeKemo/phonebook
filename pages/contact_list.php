@@ -1,31 +1,30 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: moracan
- * Date: 12/18/2017
- * Time: 3:53 PM
+ * User: nikol
+ * Date: 22-Dec-17
+ * Time: 10:23 PM
  */
 
 ?>
 
 <head>
 
-<title>Phonebook</title>
-<meta charset="utf-8">
+    <title>Phonebook</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
 
-    <link rel="stylesheet" href="<?=CSS_PATH.'add_contact.css'?>">
+    <link rel="stylesheet" href="../css/add_contact.css">
 
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
     <style>
 
@@ -56,7 +55,8 @@
 
     </style>
 
-</head>
+    </head>
+<body>
 <nav class="navbar navbar-inverse">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -92,3 +92,37 @@
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
 
+<table class="table table-hover table-inverse">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>name@live.com</td>
+        <td>063222666</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>name@live.com</td>
+        <td>065555333</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>name@live.com</td>
+        <td>066111222</td>
+    </tr>
+    </tbody>
+</table>
+</body>
