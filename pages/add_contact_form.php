@@ -6,7 +6,7 @@
  * Time: 4:05 PM
  */
 
-include('../db/paths.php');
+include('../db_config/paths.php');
 include('menu.php');
 ?>
 

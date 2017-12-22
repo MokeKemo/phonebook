@@ -26,8 +26,20 @@ class DataHandler {
 
     public function executeQuery($q)
     {
-        $result = $this->db->query($q);
-        return $result;
+        $r = $this->db->query($q, $mode = PDO::FETCH_ASSOC);
+
+        return $r;
     }
 
+    public function test()
+    {
+
+        $q = "SELECT * FROM `test`";
+
+        $r = $this->executeQuery($q);
+
+        $r = $r->fetchAll();
+
+        return $r;
+    }
 }

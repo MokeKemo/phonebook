@@ -6,27 +6,23 @@
  * Time: 10:53 PM
  */
 
-include('../db/classDataHandler.php');
+include('../db_config/paths.php');
 
-$res = new DataHandler();
-
-//$q = "SELECT * FROM `test`";
-//
-//$result = $res->executeQuery($q);
-//
-//$re    = $result->fetchAll();
-//
-//foreach($re as $r) {
-//    print_r($r);
-//}
+$_data_handler = new DataHandler();
 
 if(isset($_POST['case']) AND !empty($_POST['case'])) {
     switch ($_POST['case']) {
+
         case 'contactInfo':
 
+            $name     = $_POST['name'];
+            $lastname = $_POST['lastname'];
+            $email    = $_POST['email'];
+            $phone    = $_POST['phone'];
+
+            var_dump($_data_handler->test());
+
             break;
-
-
 
     }
 
