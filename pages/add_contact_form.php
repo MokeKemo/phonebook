@@ -28,6 +28,10 @@ include('menu.php');
     </head>
 <body>
 
+<div id="insertAlert" class="alert alert-success hidden">
+    <center><strong>Success!</strong> You inserted contact into your phonebook.</center>
+</div>
+
 <div class="container">
     <div class="row main">
         <div class="main-login main-center">

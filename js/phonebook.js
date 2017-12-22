@@ -21,7 +21,10 @@ function getContactInfo(){
         {
             if(data != 0)
             {
-                window.location.replace(data);
+                //$('#insertAlert').attr('class', "");
+                $('#insertAlert').attr('class', "alert alert-success");
+                $('#insertAlert').fadeOut(5000);
+
             }
             else{ alert("Your credentials are not correct!"); }
         }]

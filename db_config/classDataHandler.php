@@ -24,41 +24,46 @@ class DataHandler {
             $this->db = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);;
         }
 
-    public function executeQuery($q)
+    public function executeQueryInsert($q)
     {
         $r = $this->db->query($q, $mode = PDO::FETCH_ASSOC);
 
-        if($r) var_dump('ima');
-        else var_dump('nema');
+        if($r) return 1;
 
-        //$r = $r->fetchAll();
-        //return $r;
+        else return 0;
     }
 
-    public function test()
+    public function executeQuerySelect($q)
     {
+        $r = $this->db->query($q, $mode = PDO::FETCH_ASSOC);
 
-        $q = "SELECT * FROM `test`";
+        $r = $r->fetchAll();
 
-        $r = $this->executeQuery($q);
-
-        //$r = $r->fetchAll(); var_dump($r);
-
-        //return $r;
+        return $r;
     }
 
     public function insertContact($name, $lastname, $email, $phone)
     {
-        $q = "INSER INTO `contacts`(`name`, `lastname`, `email`, `phone`) VALUES('$name','$lastname','$email','$phone')";
+        $q = "INSERT INTO `contacts`(`name`, `lastname`, `email`, `phone`) VALUES('$name','$lastname','$email','$phone')";
 
-        $r = $this->executeQuery($q);
-//
-//        $r = $r->fetchAll();
-//
-//        if($r) return 1;
-//
-//        else return 0;
+        $r = $this->executeQueryInsert($q);
+
+        if($r) return 1;
+
+        else return 0;
     }
+
+    public function selectContact()
+    {
+        $q = "SELECT * FROM `contacts`";
+
+        $r = $this->executeQuerySelect($q);
+
+        return $r;
+    }
+
+
+
 }
 
 

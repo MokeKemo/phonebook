@@ -20,7 +20,11 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
             $email    = $_POST['email'];
             $phone    = $_POST['phone'];
 
-            $_data_handler->insertContact($name, $lastname, $email, $phone);
+            $r = $_data_handler->insertContact($name, $lastname, $email, $phone);
+
+            if($r) echo json_encode(1);
+
+            else echo json_encode(0);
 
             break;
 
