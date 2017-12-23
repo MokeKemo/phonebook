@@ -6,6 +6,10 @@
  * Time: 10:23 PM
  */
 
+include('../controllers/profiller.php');
+
+$contacts_list = getList();
+
 ?>
 
 <head>
@@ -73,8 +77,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-3">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?=PAGES_PATH.'add_contact_form.php'?>">Add Contact</a></li>
-                <li><a href="<?=PAGES_PATH.'contact_list.php'?>">Contacts List</a></li>
+                <li><a href="add_contact_form.php">Add Contact</a></li>
+                <li><a href="contact_list.php">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
                     <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
@@ -102,27 +106,22 @@
         <th>Phone</th>
     </tr>
     </thead>
+   <?php
+
+   foreach($contacts_list as $contact)
+   {
+       echo'
     <tbody>
     <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>name@live.com</td>
-        <td>063222666</td>
+        <td>'.$contact["name"].'</td>
+        <td>'.$contact["lastname"].'</td>
+        <td>'.$contact["email"].'</td>
+        <td>'.$contact["phone"].'</td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>name@live.com</td>
-        <td>065555333</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>name@live.com</td>
-        <td>066111222</td>
-    </tr>
-    </tbody>
+
+    </tbody>';
+   }
+?>
 </table>
 </body>

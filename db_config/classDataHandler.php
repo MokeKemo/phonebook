@@ -53,7 +53,7 @@ class DataHandler {
         else return 0;
     }
 
-    public function selectContact()
+    public function selectContacts()
     {
         $q = "SELECT * FROM `contacts`";
 
@@ -61,8 +61,6 @@ class DataHandler {
 
         return $r;
     }
-
-
 
 }
 
