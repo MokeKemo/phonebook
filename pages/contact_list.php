@@ -99,7 +99,7 @@ $contacts_list = getList();
 <table class="table table-hover table-inverse">
     <thead>
     <tr>
-        <th>#</th>
+        <th>N</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
@@ -107,13 +107,13 @@ $contacts_list = getList();
     </tr>
     </thead>
    <?php
-
+    $num = 1;
    foreach($contacts_list as $contact)
    {
        echo'
     <tbody>
     <tr>
-        <th scope="row">1</th>
+        <th scope="row">'.$num++.'</th>
         <td>'.$contact["name"].'</td>
         <td>'.$contact["lastname"].'</td>
         <td>'.$contact["email"].'</td>

@@ -18,42 +18,61 @@ function getContactInfo(){
     info.phone    = $('#phone').val();
 
 
-    console.log(validateContactInput(info.name, info.lastname, info.email, info.phone));
+    var validation_status = validateContactInput(info.name, info.lastname, info.email, info.phone);
 
-    //console.log(validateName(info.name));
-    //console.log(validateName(info.lastname));
-    //console.log(validateEmail(info.email));
-    //console.log(validatePhone(info.phone));
+    if(validation_status === 1)
+    {
+         $.ajax({
+         url: "../controllers/controller.php",
+         type: "POST",
+         dataType: "JSON",
+         data: info,
+         async: true,
+         success: [function(data)
+         {
+         if(data != 0)
+         {
+            //$('#insertAlert').attr('class', "");
+             $('#insertAlert').append('<div class="alert alert-success"> <center><strong>Success!</strong> You inserted contact into your phonebook.</center> </div>');
+             $('#insertAlert').fadeOut(5000);
+             $('#insertAlert').append('<div id="insertAlert"></div>');
+             $('#name').val("");
+             $('#lastname').val("");
+             $('#email').val("");
+             $('#phone').val("");
 
-   /* $.ajax({
-        url: "../controllers/controller.php",
-        type: "POST",
-        dataType: "JSON",
-        data: info,
-        async: true,
-        success: [function(data)
-        {
-            if(data != 0)
-            {
-                //$('#insertAlert').attr('class', "");
-                $('#insertAlert').attr('class', "alert alert-success");
-                $('#insertAlert').fadeOut(5000);
-                $('#name').val("");
-                $('#lastname').val("");
-                $('#email').val("");
-                $('#phone').val("");
+         }
 
-            }
-            else{ alert("Your credentials are not correct!"); }
-        }]
-    });*/
-
+         }]
+         });
+    }
+    else
+    {
+        if(validation_status[0] == 1) $('#name').css('color', 'red');
+        if(validation_status[1] == 1) $('#lastname').css('color', 'red');
+        if(validation_status[2] == 1) $('#email').css('color', 'red');
+        if(validation_status[3] == 1) $('#phone').css('color', 'red');
+        $('#insertAlert2').attr('class', "alert alert-success");
+        setTimeout($('#insertAlert2').attr('class', "alert alert-success hidden"), 5000);
+        $('#name').css('color', 'black');
+        $('#lastname').css('color', 'black');
+        $('#email').css('color', 'black');
+        $('#phone').css('color', 'black');
+    }
 }
 
 function validateContactInput(name, lastname, email, phone)
 {
     if( validateName(name) && validateName(lastname) && validateEmail(email) && validatePhone(phone) ) return 1;
-    else return 0;
+    else {
+        var n = validateName(name), l = validateName(lastname), e = validateEmail(email), p = validatePhone(phone), check = [0,0,0,0];
+        //obrada pogresnog unosa
+        if(n == 0) check[0] = 1;
+        if(l == 0) check[1] = 1;
+        if(e == 0) check[2] = 1;
+        if(p == 0) check[3] = 1;
+        return check;
+    }
 }
 
 function validateName(name)
@@ -65,7 +84,7 @@ function validateName(name)
         if(isLetter(name[i])) ctrl++;
     }
 
-    if(ctrl == i && i < 35) return 1;
+    if(ctrl == i && i < 35 && name != "") return 1;
     else return 0;
 }
 
@@ -87,7 +106,7 @@ function validateEmail(email)
         if(email[i] == '@') monkey++;
         if(email[i] == '.') dots++;
     }
-    if(monkey > 0 && dots > 0) return 1;
+    if(monkey > 0 && dots > 0 && email != "") return 1;
     else return 0;
 }
 
@@ -98,9 +117,19 @@ function validatePhone(phone)
     for( var i = 0; i < l; i++ ){
         if(isNumber(phone[i])) ctrl++;
     }
-    if(ctrl == i) return 1;
+    if(ctrl == i && phone != "") return 1;
     else return 0;
 }
+
+function visualisation()
+{
+
+}
+
+
+
+
+
 
 
 
