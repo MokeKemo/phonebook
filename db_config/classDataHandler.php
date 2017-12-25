@@ -62,6 +62,14 @@ class DataHandler {
         return $r;
     }
 
+    public function searchContacts($param)
+    {
+        $q = "SELECT * FROM `contacts` WHERE `name` LIKE '$param%'";
+
+        $r = $this->executeQuerySelect($q);
+
+        return $r;
+    }
 }
 
 

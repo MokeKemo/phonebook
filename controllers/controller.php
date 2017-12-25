@@ -28,6 +28,16 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
 
             break;
 
+        case 'searchContacts':
+
+            $searchParam = $_POST['parameter'];
+
+            $r = $_data_handler->searchContacts($searchParam);
+
+            echo json_encode($r);
+
+            break;
+
     }
 
 }

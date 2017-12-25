@@ -114,17 +114,39 @@ function validatePhone(phone)
     else return 0;
 }
 
-function visualisation()
+function searchContacts(search_param)
 {
+    var data       = {};
+    data.case      = 'searchContacts';
+    data.parameter = search_param;
+
+    $.ajax({
+        url: "../controllers/controller.php",
+        type: "POST",
+        dataType: "JSON",
+        data: data,
+        async: true,
+        success: [function(data)
+        {
+            if(data)
+            {
+                var d_l = data.length;
+                $('.tableBody').empty();
+                for(var i =0; i < d_l; i++)
+                {
+                    $('#tableBodyId').append('<tr> <th scope="row">' + (i+1) + '</th> <td>' + data[i]["name"] + '</td> <td>' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td>' + data[i]["phone"] + '</td></tr>');
+                }
+            }
+        }]
+    });
 
 }
 
-
-
-
-
-
-
+//
+//
+// <tr> <th scope="row">' + (i++) + '</th> <td>' + data['name'] + '</td> <td>' + data['lastname'] + '</td> <td>' + data['email'] + '</td> <td>' + data['phone'] + '</td></tr>
+//
+//
 
 
 

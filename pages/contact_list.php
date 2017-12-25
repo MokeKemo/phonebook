@@ -29,6 +29,7 @@ $contacts_list = getList();
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/phonebook.js"></script>
 
     <style>
 
@@ -81,15 +82,17 @@ $contacts_list = getList();
                 <li><a href="contact_list.php">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
-                    <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+                    <form class="navbar-form navbar-right" role="search"> <div class="form-group"> <input id="searchText" onkeyup="searchContacts(this.value);" type="text" class="form-control" placeholder="Search" /> </div> </form>
+                    <!--a class="btn btn-default btn-outline btn-circle" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
+
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search" />
                     </div>
-                    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="false"></span></button>
                 </form>
             </div>
         </div><!-- /.navbar-collapse -->
@@ -111,7 +114,7 @@ $contacts_list = getList();
    foreach($contacts_list as $contact)
    {
        echo'
-    <tbody>
+    <tbody id="tableBodyId" class="tableBody">
     <tr>
         <th scope="row">'.$num++.'</th>
         <td>'.$contact["name"].'</td>
