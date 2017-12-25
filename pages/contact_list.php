@@ -29,6 +29,7 @@ $contacts_list = getList();
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/phonebook.js"></script>
 
     <style>
 
@@ -81,15 +82,17 @@ $contacts_list = getList();
                 <li><a href="contact_list.php">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
-                    <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+                    <form class="navbar-form navbar-right" role="search"> <div class="form-group"> <input id="searchText" onkeyup="searchContacts(this.value);" type="text" class="form-control" placeholder="Search" /> </div> </form>
+                    <!--a class="btn btn-default btn-outline btn-circle" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
+
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search" />
                     </div>
-                    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="false"></span></button>
                 </form>
             </div>
         </div><!-- /.navbar-collapse -->
@@ -104,6 +107,7 @@ $contacts_list = getList();
         <th>Last Name</th>
         <th>Email</th>
         <th>Phone</th>
+        <th>Delete</th>
     </tr>
     </thead>
    <?php
@@ -111,16 +115,17 @@ $contacts_list = getList();
    foreach($contacts_list as $contact)
    {
        echo'
-    <tbody>
-    <tr>
-        <th scope="row">'.$num++.'</th>
-        <td>'.$contact["name"].'</td>
-        <td>'.$contact["lastname"].'</td>
+    <tbody id="tableBodyId" class="tableBody">
+    <tr id="trow'.$num.'">
+        <th scope="row">'.$num.'</th>
+        <td id="name'.$num.'">'.$contact["name"].'</td>
+        <td id="lastname'.$num.'">'.$contact["lastname"].'</td>
         <td>'.$contact["email"].'</td>
-        <td>'.$contact["phone"].'</td>
+        <td id="phone-'.$num.'">'.$contact["phone"].'</td>
+        <td><button onclick="deleteContact('.$num.');" type="button" class="btn btn-danger">D</button></td>
     </tr>
 
-    </tbody>';
+    </tbody>'; $num++;
    }
 ?>
 </table>

@@ -55,13 +55,30 @@ class DataHandler {
 
     public function selectContacts()
     {
-        $q = "SELECT * FROM `contacts`";
+        $q = "SELECT * FROM `contacts` ORDER BY `name` ASC";
 
         $r = $this->executeQuerySelect($q);
 
         return $r;
     }
 
+    public function searchContacts($param)
+    {
+        $q = "SELECT * FROM `contacts` WHERE `name` LIKE '$param%'";
+
+        $r = $this->executeQuerySelect($q);
+
+        return $r;
+    }
+
+    public function deleteContact($name, $lastname, $phone)
+    {
+        $q = "DELETE FROM `contacts` WHERE `name`='$name' AND `lastname`='$lastname' AND `phone`='$phone'";
+
+        $r = $this->executeQueryInsert($q);
+
+        return $r;
+    }
 }
 
 

@@ -77,7 +77,7 @@
                 <li><a href="<?=PAGES_PATH.'contact_list.php'?>">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
-                    <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+                    <!--a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">

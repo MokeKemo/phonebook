@@ -17,7 +17,7 @@ function getContactInfo(){
     info.email    = $('#email').val();
     info.phone    = $('#phone').val();
 
-
+    $('#insertAlert').append('<div id="insertAlert"></div>');
     var validation_status = validateContactInput(info.name, info.lastname, info.email, info.phone);
 
     if(validation_status === 1)
@@ -32,10 +32,10 @@ function getContactInfo(){
          {
          if(data != 0)
          {
-            //$('#insertAlert').attr('class', "");
-             $('#insertAlert').append('<div class="alert alert-success"> <center><strong>Success!</strong> You inserted contact into your phonebook.</center> </div>');
-             $('#insertAlert').fadeOut(5000);
-             $('#insertAlert').append('<div id="insertAlert"></div>');
+
+            $('#alertText').attr('class', "alert alert-success");
+             $('#insertAlert').css('display', "block");
+             $('#insertAlert').slideUp(3500);
              $('#name').val("");
              $('#lastname').val("");
              $('#email').val("");
@@ -48,16 +48,9 @@ function getContactInfo(){
     }
     else
     {
-        if(validation_status[0] == 1) $('#name').css('color', 'red');
-        if(validation_status[1] == 1) $('#lastname').css('color', 'red');
-        if(validation_status[2] == 1) $('#email').css('color', 'red');
-        if(validation_status[3] == 1) $('#phone').css('color', 'red');
-        $('#insertAlert2').attr('class', "alert alert-success");
-        setTimeout($('#insertAlert2').attr('class', "alert alert-success hidden"), 5000);
-        $('#name').css('color', 'black');
-        $('#lastname').css('color', 'black');
-        $('#email').css('color', 'black');
-        $('#phone').css('color', 'black');
+        $('#insertAlert2').attr('class', "alert alert-danger");
+        $('#insertAlert2').css('display', "block");
+        $('#insertAlert2').slideUp(3500);
     }
 }
 
@@ -121,18 +114,58 @@ function validatePhone(phone)
     else return 0;
 }
 
-function visualisation()
+function searchContacts(search_param)
 {
+    var data       = {};
+    data.case      = 'searchContacts';
+    data.parameter = search_param;
+
+    $.ajax({
+        url: "../controllers/controller.php",
+        type: "POST",
+        dataType: "JSON",
+        data: data,
+        async: true,
+        success: [function(data)
+        {
+            if(data)
+            {
+                var d_l = data.length;
+                $('.tableBody').empty();
+                for(var i =0; i < d_l; i++)
+                {
+                    $('#tableBodyId').append('<tr> <th scope="row">' + (i+1) + '</th> <td>' + data[i]["name"] + '</td> <td>' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td>' + data[i]["phone"] + '</td><td><button onclick="deleteContact();" type="button" class="btn btn-danger">D</button></td></tr>');
+                }
+            }
+        }]
+    });
 
 }
 
+function deleteContact(id)
+{
+    var data = {};
 
+    data.case = 'deleteContact';
+    data.name = $('#name' + id).text();
+    data.lastname = $('#lastname' + id).text();
+    data.phone = $('#phone-' + id).text();
 
+    $.ajax({
+        url: "../controllers/controller.php",
+        type: "POST",
+        dataType: "JSON",
+        data: data,
+        async: true,
+        success: [function (data) {
+            if (data) {
+                $('#trow' + id).remove();
+                alert('You removed contact!!!');
+            }
 
-
-
-
-
+        }]
+    });
+}
 
 
 
