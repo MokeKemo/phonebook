@@ -142,12 +142,10 @@ function searchContacts(search_param)
 
 }
 
-//
-//
-// <tr> <th scope="row">' + (i++) + '</th> <td>' + data['name'] + '</td> <td>' + data['lastname'] + '</td> <td>' + data['email'] + '</td> <td>' + data['phone'] + '</td></tr>
-//
-//
-
+function deleteContact()
+{
+    //console.log(name, lastname, phone);
+}
 
 
 

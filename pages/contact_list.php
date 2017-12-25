@@ -107,6 +107,7 @@ $contacts_list = getList();
         <th>Last Name</th>
         <th>Email</th>
         <th>Phone</th>
+        <th>Delete</th>
     </tr>
     </thead>
    <?php
@@ -121,6 +122,7 @@ $contacts_list = getList();
         <td>'.$contact["lastname"].'</td>
         <td>'.$contact["email"].'</td>
         <td>'.$contact["phone"].'</td>
+        <td><button onclick="deleteContact();" type="button" class="btn btn-danger">D</button></td>
     </tr>
 
     </tbody>';
