@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6ed06925-1e93-4c8a-96ab-db174395d9e3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phonebook.js" afterPath="$PROJECT_DIR$/js/phonebook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/add_contact_form.php" afterPath="$PROJECT_DIR$/pages/add_contact_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/contact_list.php" afterPath="$PROJECT_DIR$/pages/contact_list.php" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
