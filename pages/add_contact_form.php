@@ -27,6 +27,13 @@ include('menu.php');
 
     </head>
 <body>
+<div id="alertBox">
+
+</div>
+<div id="insertAlert"><div id="alertText" class="alert alert-success hidden"> <center><strong>Success!</strong> You inserted contact into your phonebook.</center> </div></div>
+<div id="insertAlert2" class="alert alert-danger hidden">
+    <center><strong>Wrong input!</strong> You inserted incorrect info.</center>
+</div>
 
 <div class="container">
     <div class="row main">

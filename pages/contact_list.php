@@ -1,31 +1,34 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: moracan
- * Date: 12/18/2017
- * Time: 3:53 PM
+ * User: nikol
+ * Date: 22-Dec-17
+ * Time: 10:23 PM
  */
+
+include('../controllers/profiller.php');
+
+$contacts_list = getList();
 
 ?>
 
 <head>
 
-<title>Phonebook</title>
-<meta charset="utf-8">
+    <title>Phonebook</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
 
-    <link rel="stylesheet" href="<?=CSS_PATH.'add_contact.css'?>">
+    <link rel="stylesheet" href="../css/add_contact.css">
 
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
     <style>
 
@@ -56,7 +59,8 @@
 
     </style>
 
-</head>
+    </head>
+<body>
 <nav class="navbar navbar-inverse">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -73,8 +77,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-3">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?=PAGES_PATH.'add_contact_form.php'?>">Add Contact</a></li>
-                <li><a href="<?=PAGES_PATH.'contact_list.php'?>">Contacts List</a></li>
+                <li><a href="add_contact_form.php">Add Contact</a></li>
+                <li><a href="contact_list.php">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
                     <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
@@ -92,3 +96,32 @@
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
 
+<table class="table table-hover table-inverse">
+    <thead>
+    <tr>
+        <th>N</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    </thead>
+   <?php
+    $num = 1;
+   foreach($contacts_list as $contact)
+   {
+       echo'
+    <tbody>
+    <tr>
+        <th scope="row">'.$num++.'</th>
+        <td>'.$contact["name"].'</td>
+        <td>'.$contact["lastname"].'</td>
+        <td>'.$contact["email"].'</td>
+        <td>'.$contact["phone"].'</td>
+    </tr>
+
+    </tbody>';
+   }
+?>
+</table>
+</body>
