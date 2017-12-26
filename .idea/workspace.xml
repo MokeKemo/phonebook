@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6ed06925-1e93-4c8a-96ab-db174395d9e3" name="Default" comment="" />
+=======
+    <list default="true" id="6ed06925-1e93-4c8a-96ab-db174395d9e3" name="Default" comment="">
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phonebook.js" afterPath="$PROJECT_DIR$/js/phonebook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/contact_list.php" afterPath="$PROJECT_DIR$/pages/contact_list.php" />
+>>>>>>> de120aa00fbf45fd71a3e64feced487315648954
+    </list>
+>>>>>>> 3081aa80cef14633e1f4ad3aff2ffd4b6275e995
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

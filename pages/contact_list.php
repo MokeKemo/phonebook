@@ -116,16 +116,16 @@ $contacts_list = getList();
    {
        echo'
     <tbody id="tableBodyId" class="tableBody">
-    <tr>
-        <th scope="row">'.$num++.'</th>
-        <td>'.$contact["name"].'</td>
-        <td>'.$contact["lastname"].'</td>
+    <tr id="trow'.$num.'">
+        <th scope="row">'.$num.'</th>
+        <td id="name'.$num.'">'.$contact["name"].'</td>
+        <td id="lastname'.$num.'">'.$contact["lastname"].'</td>
         <td>'.$contact["email"].'</td>
-        <td>'.$contact["phone"].'</td>
-        <td><button onclick="deleteContact();" type="button" class="btn btn-danger">D</button></td>
+        <td id="phone-'.$num.'">'.$contact["phone"].'</td>
+        <td><button onclick="deleteContact('.$num.');" type="button" class="btn btn-danger">D</button></td>
     </tr>
 
-    </tbody>';
+    </tbody>'; $num++;
    }
 ?>
 </table>

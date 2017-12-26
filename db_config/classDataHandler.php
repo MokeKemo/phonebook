@@ -70,6 +70,15 @@ class DataHandler {
 
         return $r;
     }
+
+    public function deleteContact($name, $lastname, $phone)
+    {
+        $q = "DELETE FROM `contacts` WHERE `name`='$name' AND `lastname`='$lastname' AND `phone`='$phone'";
+
+        $r = $this->executeQueryInsert($q);
+
+        return $r;
+    }
 }
 
 
