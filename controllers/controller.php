@@ -13,6 +13,24 @@ $_data_handler = new DataHandler();
 if(isset($_POST['case']) AND !empty($_POST['case'])) {
     switch ($_POST['case']) {
 
+        case 'loginData':
+
+            $user   = $_POST['user'];
+            $pass   = $_POST['pass'];
+
+            $r      = $_data_handler->login($user, $pass);
+
+            if($r)
+            {
+                $_SESSION['user'] = $user;
+                $redirect         = PAGES_PATH . "add_contact_form.php";
+                echo json_encode($redirect);
+            }
+
+            else echo json_encode(0);
+
+            break;
+
         case 'contactInfo':
 
             $name     = $_POST['name'];

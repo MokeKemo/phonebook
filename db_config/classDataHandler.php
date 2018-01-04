@@ -42,6 +42,19 @@ class DataHandler {
         return $r;
     }
 
+    public function login($user, $pass)
+    {
+        $pass   = md5($pass);
+
+        $q      = "SELECT `user`, `password` FROM `users` WHERE `user`='$user' AND `password`='$pass'";
+
+        $r      = $this->executeQuerySelect($q);
+
+        if($r) return 1;
+
+        else return 0;
+    }
+
     public function insertContact($name, $lastname, $email, $phone)
     {
         $q = "INSERT INTO `contacts`(`name`, `lastname`, `email`, `phone`) VALUES('$name','$lastname','$email','$phone')";
