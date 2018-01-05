@@ -5,11 +5,18 @@
  * Date: 12/18/2017
  * Time: 4:05 PM
  */
-
+session_start();
+error_reporting(0);
 include('../db_config/paths.php');
 include('menu.php');
 
 
+
+if(!isset($_SESSION['username']) && empty($_SESSION['username']))
+{
+    var_dump($_SESSION['username']);
+    header('Location:'.BASE_PATH.'phonebook.php');
+}
 
 ?>
 

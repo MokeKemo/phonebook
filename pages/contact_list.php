@@ -5,8 +5,14 @@
  * Date: 22-Dec-17
  * Time: 10:23 PM
  */
-
+session_start();
+error_reporting(0);
 include('../controllers/profiller.php');
+
+if(!isset($_SESSION['username']) && empty($_SESSION['username']))
+{
+    header('Location:'.BASE_PATH.'phonebook.php');
+}
 
 $contacts_list = getList();
 

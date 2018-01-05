@@ -5,7 +5,7 @@
  * Date: 21-Jul-17
  * Time: 10:53 PM
  */
-
+session_start();
 include('../db_config/paths.php');
 
 $_data_handler = new DataHandler();
