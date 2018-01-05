@@ -5,8 +5,19 @@
  * Date: 22-Dec-17
  * Time: 10:23 PM
  */
+<<<<<<< HEAD
 session_start();
 error_reporting(0);
+=======
+
+session_start();
+
+if(!isset($_SESSION['user']) && empty($_SESSION['user']))
+{
+    header('Location:'.BASE_PATH.'phonebook.php');
+}
+
+>>>>>>> 6e7d523ca18a46019093c646687be1fea9e343dd
 include('../controllers/profiller.php');
 
 if(!isset($_SESSION['username']) && empty($_SESSION['username']))
@@ -92,6 +103,7 @@ $contacts_list = getList();
                     <form class="navbar-form navbar-right" role="search"> <div class="form-group"> <input id="searchText" onkeyup="searchContacts(this.value);" type="text" class="form-control" placeholder="Search" /> </div> </form>
                     <!--a class="btn btn-default btn-outline btn-circle" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
+                <li><a style="color:gray;" href="logout.php" class="btn btn-info">Logout</a></li>
 
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">

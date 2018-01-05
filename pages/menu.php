@@ -8,6 +8,7 @@
 
 ?>
 
+<html>
 <head>
 
 <title>Phonebook</title>
@@ -57,6 +58,7 @@
     </style>
 
 </head>
+<body>
 <nav class="navbar navbar-inverse">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,7 +79,7 @@
                 <li><a href="<?=PAGES_PATH.'contact_list.php'?>">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
-                    <!--a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
+                        <a style="color:gray;" href="logout.php" class="btn btn-info">Logout</a><!--a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
@@ -89,6 +91,9 @@
                 </form>
             </div>
         </div><!-- /.navbar-collapse -->
+
     </div><!-- /.container -->
 </nav><!-- /.navbar -->
 
+</body>
+</html>

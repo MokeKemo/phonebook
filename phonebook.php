@@ -1,6 +1,14 @@
 
 <?php
+
+session_start();
+
 include('db_config/paths.php');
+
+if(isset($_SESSION['user']) && !empty($_SESSION['user']))
+{
+    header('Location:'.PAGES_PATH.'add_contact_form.php');
+}
 
 ?>
 <head>
