@@ -6,10 +6,15 @@
  * Time: 4:05 PM
  */
 
+session_start();
 include('../db_config/paths.php');
 include('menu.php');
 
-
+if(!isset($_SESSION['user']) && empty($_SESSION['user']))
+{
+    header('Location:'.BASE_PATH.'phonebook.php');
+    exit();
+}
 
 ?>
 

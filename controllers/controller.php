@@ -6,6 +6,8 @@
  * Time: 10:53 PM
  */
 
+session_start();
+
 include('../db_config/paths.php');
 
 $_data_handler = new DataHandler();
@@ -27,8 +29,11 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
                 echo json_encode($redirect);
             }
 
-            else echo json_encode(0);
-
+            else
+            {
+                $redirect = BASE_PATH . "phonebook.php";
+                echo json_encode($redirect);
+            }
             break;
 
         case 'contactInfo':

@@ -18,7 +18,7 @@ function login()
         async: true,
         success: [function(data)
         {
-
+            window.location.replace(data);
         }]
     });
 }
