@@ -6,10 +6,6 @@
  * Time: 10:52 PM
  */
 
-include('classDataHandler.php');
-
-$db = new DataHandler();
-
 define('BASE_PATH', 'http://localhost/phonebook/');
 define('PAGES_PATH', 'http://localhost/phonebook/pages/');
 define('CSS_PATH', 'http://localhost/phonebook/css/');

@@ -5,22 +5,12 @@
  * Date: 22-Dec-17
  * Time: 10:23 PM
  */
-<<<<<<< HEAD
 session_start();
-error_reporting(0);
-=======
 
-session_start();
+include('../controllers/profiller.php');
+include('../db_config/paths.php');
 
 if(!isset($_SESSION['user']) && empty($_SESSION['user']))
-{
-    header('Location:'.BASE_PATH.'phonebook.php');
-}
-
->>>>>>> 6e7d523ca18a46019093c646687be1fea9e343dd
-include('../controllers/profiller.php');
-
-if(!isset($_SESSION['username']) && empty($_SESSION['username']))
 {
     header('Location:'.BASE_PATH.'phonebook.php');
 }
