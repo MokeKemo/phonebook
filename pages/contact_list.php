@@ -15,7 +15,7 @@ if(!isset($_SESSION['user']) && empty($_SESSION['user']))
     header('Location:'.BASE_PATH.'phonebook.php');
 }
 
-$contacts_list = getList();
+$contacts_list = getList($_SESSION['user']);
 
 ?>
 

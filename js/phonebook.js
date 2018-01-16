@@ -134,7 +134,7 @@ function searchContacts(search_param)
                 $('.tableBody').empty();
                 for(var i =0; i < d_l; i++)
                 {
-                    $('#tableBodyId').append('<tr> <th scope="row">' + (i+1) + '</th> <td>' + data[i]["name"] + '</td> <td>' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td>' + data[i]["phone"] + '</td><td><button onclick="deleteContact();" type="button" class="btn btn-danger">D</button></td></tr>');
+                    $('#tableBodyId').append('<tr> <th scope="row">' + (i+1) + '</th> <td id="#name'+(i+1)+'">' + data[i]["name"] + '</td> <td id="#lastname'+(i+1)+'">' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td id="#phone-'+(i+1)+'">' + data[i]["phone"] + '</td><td><button onclick="deleteContactFromSearch();" type="button" class="btn btn-danger">D</button></td></tr>');
                 }
             }
         }]
@@ -142,7 +142,7 @@ function searchContacts(search_param)
 
 }
 
-function deleteContact(id)
+function deleteContact(name, lastname, phone)
 {
     var data = {};
 
@@ -150,6 +150,8 @@ function deleteContact(id)
     data.name = $('#name' + id).text();
     data.lastname = $('#lastname' + id).text();
     data.phone = $('#phone-' + id).text();
+
+    console.log(data);
 
     $.ajax({
         url: "../controllers/controller.php",
@@ -167,7 +169,32 @@ function deleteContact(id)
     });
 }
 
+function deleteContactFromSearch(name, lastname, phone)
+{
+    var data = {};
 
+    data.case = 'deleteContact';
+    data.name = name;
+    data.lastname = lastname;
+    data.phone = phone;
+
+    console.log(data);
+
+    $.ajax({
+        url: "../controllers/controller.php",
+        type: "POST",
+        dataType: "JSON",
+        data: data,
+        async: true,
+        success: [function (data) {
+            if (data) {
+                $('#trow' + id).remove();
+                alert('You removed contact!!!');
+            }
+
+        }]
+    });
+}
 
 
 

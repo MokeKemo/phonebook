@@ -55,9 +55,10 @@ class DataHandler {
         else return 0;
     }
 
-    public function insertContact($name, $lastname, $email, $phone)
+    public function insertContact($name, $lastname, $email, $phone, $user)
     {
-        $q = "INSERT INTO `contacts`(`name`, `lastname`, `email`, `phone`) VALUES('$name','$lastname','$email','$phone')";
+        $q = "INSERT INTO `contacts`(`name`, `lastname`, `email`, `phone`, `user`)
+                    VALUES('$name','$lastname','$email','$phone', '$user')";
 
         $r = $this->executeQueryInsert($q);
 
@@ -66,18 +67,18 @@ class DataHandler {
         else return 0;
     }
 
-    public function selectContacts()
+    public function selectContacts($user)
     {
-        $q = "SELECT * FROM `contacts` ORDER BY `name` ASC";
+        $q = "SELECT * FROM `contacts` WHERE `user` = '$user' ORDER BY `name` ASC";
 
         $r = $this->executeQuerySelect($q);
 
         return $r;
     }
 
-    public function searchContacts($param)
+    public function searchContacts($param, $user)
     {
-        $q = "SELECT * FROM `contacts` WHERE `name` LIKE '$param%'";
+        $q = "SELECT * FROM `contacts` WHERE `name` LIKE '$param%' AND `user`='$user'";
 
         $r = $this->executeQuerySelect($q);
 

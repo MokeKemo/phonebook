@@ -70,8 +70,7 @@ if(isset($_SESSION['user']) && !empty($_SESSION['user']))
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     }
-    <!-- Website Font style -->
-    <!-- Google Fonts -->
+
 </style>
 
 </head>
@@ -83,7 +82,7 @@ if(isset($_SESSION['user']) && !empty($_SESSION['user']))
     <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
@@ -91,9 +90,30 @@ if(isset($_SESSION['user']) && !empty($_SESSION['user']))
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="login();">Sign in</button>
+        <button id="btn-act" class="btn btn-lg btn-primary btn-block" type="button" onclick="login();">Sign in</button>
     </form>
 
 </div> <!-- /container -->
 
 </body>
+
+<script>
+
+    //listeners on fields for login when enter is pressed
+
+    $("#inputEmail").keyup(function(event) {              //listener for password field
+        if (event.keyCode === 13) {
+            $("#btn-act").click();
+        }
+    });
+
+    $("#inputPassword").keyup(function(event) {         //listener for username field
+        if (event.keyCode === 13) {
+            $("#btn-act").click();
+        }
+    });
+
+</script>>
+
+
+

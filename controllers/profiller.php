@@ -8,11 +8,11 @@
 
 include('../db_config/classDataHandler.php');
 
-function getList()
+function getList($user)
 {
     $_profiller = new DataHandler();
 
-    $r = $_profiller->selectContacts();
+    $r = $_profiller->selectContacts($user);
 
     return $r;
 }

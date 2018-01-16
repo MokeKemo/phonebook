@@ -43,8 +43,9 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
             $lastname = $_POST['lastname'];
             $email    = $_POST['email'];
             $phone    = $_POST['phone'];
+            $user     = $_SESSION['user'];
 
-            $r = $_data_handler->insertContact($name, $lastname, $email, $phone);
+            $r = $_data_handler->insertContact($name, $lastname, $email, $phone, $user);
 
             if($r) echo json_encode(1);
 
@@ -55,8 +56,9 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
         case 'searchContacts':
 
             $searchParam = $_POST['parameter'];
+            $user        = $_SESSION['user'];
 
-            $r = $_data_handler->searchContacts($searchParam);
+            $r = $_data_handler->searchContacts($searchParam, $user);
 
             echo json_encode($r);
 
