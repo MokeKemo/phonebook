@@ -21,7 +21,7 @@ class DataHandler {
             $this->username   = "root";
             $this->password   = "";
             $this->database   = "phonebook";
-            $this->db = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);;
+            $this->db = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
         }
 
     public function executeQueryInsert($q)
@@ -78,7 +78,7 @@ class DataHandler {
 
     public function searchContacts($param, $user)
     {
-        $q = "SELECT * FROM `contacts` WHERE `name` LIKE '$param%' AND `user`='$user'";
+        $q = "SELECT * FROM `contacts` WHERE `name` LIKE '$param%' AND `user`='$user' ORDER BY `name` ASC";
 
         $r = $this->executeQuerySelect($q);
 

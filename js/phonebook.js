@@ -134,7 +134,7 @@ function searchContacts(search_param)
                 $('.tableBody').empty();
                 for(var i =0; i < d_l; i++)
                 {
-                    $('#tableBodyId').append('<tr> <th scope="row">' + (i+1) + '</th> <td id="#name'+(i+1)+'">' + data[i]["name"] + '</td> <td id="#lastname'+(i+1)+'">' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td id="#phone-'+(i+1)+'">' + data[i]["phone"] + '</td><td><button onclick="deleteContactFromSearch();" type="button" class="btn btn-danger">D</button></td></tr>');
+                    $('#tableBodyId').append('<tr id="trow'+(i+1)+'"> <th scope="row">' + (i+1) + '</th> <td id="name'+(i+1)+'">' + data[i]["name"] + '</td> <td id="lastname'+(i+1)+'">' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td id="phone-'+(i+1)+'">' + data[i]["phone"] + '</td><td><button onclick="deleteContactFromSearch('+(i+1)+');" type="button" class="btn btn-danger">D</button></td></tr>');
                 }
             }
         }]
@@ -142,7 +142,7 @@ function searchContacts(search_param)
 
 }
 
-function deleteContact(name, lastname, phone)
+function deleteContact(id)
 {
     var data = {};
 
@@ -169,14 +169,14 @@ function deleteContact(name, lastname, phone)
     });
 }
 
-function deleteContactFromSearch(name, lastname, phone)
+function deleteContactFromSearch(id)
 {
     var data = {};
 
     data.case = 'deleteContact';
-    data.name = name;
-    data.lastname = lastname;
-    data.phone = phone;
+    data.name = $('#name' + id).text();
+    data.lastname = $('#lastname' + id).text();
+    data.phone = $('#phone-' + id).text();
 
     console.log(data);
 
