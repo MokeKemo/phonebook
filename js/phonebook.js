@@ -151,22 +151,24 @@ function deleteContact(id)
     data.lastname = $('#lastname' + id).text();
     data.phone = $('#phone-' + id).text();
 
-    console.log(data);
+    //console.log(data);
+    var del = confirm('Do you really want to delete this contact?');
+    if(del) {
+        $.ajax({
+            url: "../controllers/controller.php",
+            type: "POST",
+            dataType: "JSON",
+            data: data,
+            async: true,
+            success: [function (data) {
+                if (data) {
+                    $('#trow' + id).remove();
+                    alert('You removed contact!!!');
+                }
 
-    $.ajax({
-        url: "../controllers/controller.php",
-        type: "POST",
-        dataType: "JSON",
-        data: data,
-        async: true,
-        success: [function (data) {
-            if (data) {
-                $('#trow' + id).remove();
-                alert('You removed contact!!!');
-            }
-
-        }]
-    });
+            }]
+        });
+    }
 }
 
 function deleteContactFromSearch(id)
@@ -178,22 +180,24 @@ function deleteContactFromSearch(id)
     data.lastname = $('#lastname' + id).text();
     data.phone = $('#phone-' + id).text();
 
-    console.log(data);
+    //console.log(data);
+    var del = confirm('Do you really want to delete this contact?');
+    if(del) {
+        $.ajax({
+            url: "../controllers/controller.php",
+            type: "POST",
+            dataType: "JSON",
+            data: data,
+            async: true,
+            success: [function (data) {
+                if (data) {
+                    $('#trow' + id).remove();
+                    alert('You removed contact!!!');
+                }
 
-    $.ajax({
-        url: "../controllers/controller.php",
-        type: "POST",
-        dataType: "JSON",
-        data: data,
-        async: true,
-        success: [function (data) {
-            if (data) {
-                $('#trow' + id).remove();
-                alert('You removed contact!!!');
-            }
-
-        }]
-    });
+            }]
+        });
+    }
 }
 
 
