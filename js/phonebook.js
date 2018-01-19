@@ -93,6 +93,8 @@ function isNumber(str)
 
 function validateEmail(email)
 {
+    if(email=="") return 1; //email nije obavezan, pa moze ostati prazan
+
     var monkey = 0, dots = 0, l = email.length;
 
     for( var i = 0; i < l; i++ ){
