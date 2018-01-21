@@ -15,7 +15,7 @@ if(!isset($_SESSION['user']) && empty($_SESSION['user']))
     header('Location:'.BASE_PATH.'phonebook.php');
 }
 
-include('menu.php');
+include('../headers/menu.php');
 
 ?>
 

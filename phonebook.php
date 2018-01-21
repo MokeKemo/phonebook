@@ -10,7 +10,7 @@ if(isset($_SESSION['user']) && !empty($_SESSION['user']))
     header('Location:'.PAGES_PATH.'add_contact_form.php');
 }
 
-include('pages/index.header.php');
+include('headers/index.header.php');
 
 ?>
 

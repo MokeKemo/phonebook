@@ -75,14 +75,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-3">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="add_contact_form.php">Add Contact</a></li>
-                <li><a href="contact_list.php">Contacts List</a></li>
+                <li><a href="../pages/add_contact_form.php">Add Contact</a></li>
+                <li><a href="../pages/contact_list.php">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
                     <form class="navbar-form navbar-right" role="search"> <div class="form-group"> <input id="searchText" onkeyup="searchContacts(this.value);" type="text" class="form-control" placeholder="Search" /> </div> </form>
                     <!--a class="btn btn-default btn-outline btn-circle" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
-                <li><a style="color:gray;" href="logout.php" class="btn btn-info">Logout</a></li>
+                <li><a style="color:gray;" href="<?=BASE_PATH?>headers/logout.php" class="btn btn-info">Logout</a></li>
 
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">

@@ -17,7 +17,7 @@ if(!isset($_SESSION['user']) && empty($_SESSION['user']))
 
 $contacts_list = getList($_SESSION['user']);
 
-include('menu2.php');
+include('../headers/menu2.php');
 
 ?>
 
