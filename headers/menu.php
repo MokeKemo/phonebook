@@ -92,7 +92,7 @@
                 <li><a href="<?=PAGES_PATH.'contact_list.php'?>">Contacts List</a></li>
                 <li><a href="#">Connector</a></li>
                 <li>
-                        <a style="color:gray;" href="logout.php" class="btn btn-info">Logout</a><!--a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
+                        <a style="color:gray;" href="<?=BASE_PATH?>headers/logout.php" class="btn btn-info">Logout</a><!--a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a-->
                 </li>
             </ul>
             <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
