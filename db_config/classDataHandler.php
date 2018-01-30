@@ -93,6 +93,18 @@ class DataHandler {
 
         return $r;
     }
+
+    public function editContact($name, $lastname, $email, $phone, $id)
+    {
+        $q  = "UPDATE `contacts` 
+                          SET `name`='$name', `lastname`='$lastname', `email`='$email', `phone`='$phone'
+                          WHERE `id`='$id'";
+
+        $r  = $this->executeQueryInsert($q);
+
+        if($r) return 1;
+        else return 0;
+    }
 }
 
 

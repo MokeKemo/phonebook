@@ -76,7 +76,23 @@ if(isset($_POST['case']) AND !empty($_POST['case'])) {
             else echo json_encode(0);
 
             break;
+
+        case 'editContact':
+
+            $name     = $_POST['name'];
+            $lastname = $_POST['lastname'];
+            $email    = $_POST['email'];
+            $phone    = $_POST['phone'];
+            $real_id  = $_POST['rid'];
+
+            $rez      = $_data_handler->editContact($name, $lastname, $email, $phone, $real_id);
+
+            if($rez) echo json_encode('1');
+            else echo json_encode('0');
+
+            break;
     }
+
 
 }
 

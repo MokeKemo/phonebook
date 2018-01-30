@@ -41,6 +41,7 @@ include('../headers/menu2.php');
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
@@ -52,10 +53,12 @@ include('../headers/menu2.php');
     <tbody id="tableBodyId" class="tableBody">
     <tr id="trow'.$num.'">
         <th scope="row">'.$num.'</th>
+        <td class="hidden" id="dbElement'.$num.'">'.$contact['id'].'</td>
         <td id="name'.$num.'">'.$contact["name"].'</td>
         <td id="lastname'.$num.'">'.$contact["lastname"].'</td>
-        <td>'.$contact["email"].'</td>
+        <td id="email'.$num.'">'.$contact["email"].'</td>
         <td id="phone-'.$num.'">'.$contact["phone"].'</td>
+        <td><button onclick="editedValues('.$num.');" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">E</button></td>
         <td><button onclick="deleteContact('.$num.');" type="button" class="btn btn-danger">D</button></td>
     </tr>
 
@@ -77,6 +80,36 @@ include('../headers/menu2.php');
             <h3>Menu 3</h3>
             <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Contact</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="real_id">
+                <label for="name">
+                    <input type="text" id="lName"></label>
+                <label for="lastname">
+                    <input type="text" id="lLastname"></label>
+                <label for="email">
+                    <input type="text" id="lEmail"></label>
+                <label for="phone">
+                    <input type="text" id="lPhone"></label>
+            </div>
+            <div class="modal-footer">
+                <button onclick="editContact();" type="button" class="btn btn-info">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
     </div>
 </div>
 

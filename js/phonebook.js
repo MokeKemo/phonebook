@@ -101,7 +101,7 @@ function validateEmail(email)
         if(email[i] == '@') monkey++;
         if(email[i] == '.') dots++;
     }
-    if(monkey > 0 && dots > 0 && email != "") return 1;
+    if(monkey > 0 && dots > 0) return 1;
     else return 0;
 }
 
@@ -202,6 +202,48 @@ function deleteContactFromSearch(id)
     }
 }
 
+function editedValues(id)
+{
+    var data = {};
 
+    data.name     = $('#name' + id).text();
+    data.lastname = $('#lastname' + id).text();
+    data.email    = $('#email' + id).text();
+    data.phone    = $('#phone-' + id).text();
+    data.rid      = document.getElementById('dbElement' + id)cmd;//$('dbElement' + id).val();
+    //data.rid      = $(data.rid['selector']).val();
+    console.log(data.rid);
+    $('#lName').val(data.name);
+    $('#lLastname').val(data.lastname);
+    $('#lEmail').val(data.email);
+    $('#lPhone').val(data.phone);
+    $('#real_id').val(data.rid);
+}
 
+function editContact(id)
+{
+    var data = {};
+
+    data.case     = 'editContact';
+    data.name     = $('#lName').val();
+    data.lastname = $('#lLastname').val();
+    data.email    = $('#lEmail').val();
+    data.phone    = $('#lPhone').val();
+    data.rid      = $('#real_id').val();
+    console.log(data.rid);
+
+    $.ajax({
+        url: "../controllers/controller.php",
+        type: "POST",
+        dataType: "JSON",
+        data: data,
+        async: true,
+        success: [function (data) {
+            if (data) {
+                alert('Contact updated!');
+            }
+
+        }]
+    });
+}
 
