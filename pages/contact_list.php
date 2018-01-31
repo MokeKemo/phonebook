@@ -93,6 +93,7 @@ include('../headers/menu2.php');
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Contact</h4>
             </div>
+
             <div class="modal-body">
                 <input type="hidden" id="real_id">
                 <label for="name">

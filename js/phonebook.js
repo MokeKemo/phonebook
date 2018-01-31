@@ -94,15 +94,17 @@ function isNumber(str)
 function validateEmail(email)
 {
     if(email=="") return 1; //email nije obavezan, pa moze ostati prazan
+    else
+    {
+        var monkey = 0, dots = 0, l = email.length;
 
-    var monkey = 0, dots = 0, l = email.length;
-
-    for( var i = 0; i < l; i++ ){
-        if(email[i] == '@') monkey++;
-        if(email[i] == '.') dots++;
+        for (var i = 0; i < l; i++) {
+            if (email[i] == '@') monkey++;
+            if (email[i] == '.') dots++;
+        }
+        if (monkey > 0 && dots > 0) return 1;
+        else return 0;
     }
-    if(monkey > 0 && dots > 0) return 1;
-    else return 0;
 }
 
 function validatePhone(phone)
@@ -118,7 +120,7 @@ function validatePhone(phone)
 
 function searchContacts(search_param)
 {
-    var data       = {};
+    var data       = {}, id = "";
     data.case      = 'searchContacts';
     data.parameter = search_param;
 
@@ -135,8 +137,8 @@ function searchContacts(search_param)
                 var d_l = data.length;
                 $('.tableBody').empty();
                 for(var i =0; i < d_l; i++)
-                {
-                    $('#tableBodyId').append('<tr id="trow'+(i+1)+'"> <th scope="row">' + (i+1) + '</th> <td id="name'+(i+1)+'">' + data[i]["name"] + '</td> <td id="lastname'+(i+1)+'">' + data[i]["lastname"] + '</td> <td>' + data[i]["email"] + '</td> <td id="phone-'+(i+1)+'">' + data[i]["phone"] + '</td><td><button onclick="deleteContactFromSearch('+(i+1)+');" type="button" class="btn btn-danger">D</button></td></tr>');
+                {   id = data[i]["id"]
+                    $('#tableBodyId').append('<tr id="trow'+(i+1)+'"> <th scope="row">' + (i+1) + '</th><td class="hidden" id="dbElement'+ (i+1) +'">'+ id +'</td> <td id="name'+(i+1)+'">' + data[i]["name"] + '</td> <td id="lastname'+(i+1)+'">' + data[i]["lastname"] + '</td> <td id="email'+(i+1)+'">' + data[i]["email"] + '</td> <td id="phone-'+(i+1)+'">' + data[i]["phone"] + '</td><td><button onclick="editedValues('+(i+1)+');" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">E</button></td><td><button onclick="deleteContactFromSearch('+(i+1)+');" type="button" class="btn btn-danger">D</button></td></tr>');
                 }
             }
         }]
@@ -210,9 +212,8 @@ function editedValues(id)
     data.lastname = $('#lastname' + id).text();
     data.email    = $('#email' + id).text();
     data.phone    = $('#phone-' + id).text();
-    data.rid      = document.getElementById('dbElement' + id)cmd;//$('dbElement' + id).val();
-    //data.rid      = $(data.rid['selector']).val();
-    console.log(data.rid);
+    data.rid      = $('#dbElement' + id).text();
+
     $('#lName').val(data.name);
     $('#lLastname').val(data.lastname);
     $('#lEmail').val(data.email);
@@ -230,7 +231,6 @@ function editContact(id)
     data.email    = $('#lEmail').val();
     data.phone    = $('#lPhone').val();
     data.rid      = $('#real_id').val();
-    console.log(data.rid);
 
     $.ajax({
         url: "../controllers/controller.php",
@@ -241,6 +241,7 @@ function editContact(id)
         success: [function (data) {
             if (data) {
                 alert('Contact updated!');
+                window.location.reload();
             }
 
         }]
